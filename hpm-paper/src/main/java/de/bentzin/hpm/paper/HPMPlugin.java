@@ -15,9 +15,9 @@ public final class HPMPlugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
-        CommandRegister<CommandSender, PaperCommandManager<CommandSender>> commandRegister = new CommandRegister<>(this.getLogger(), (coordinator, mapper) -> {
+        CommandRegister<CommandSender, PaperCommandManager<CommandSender>> commandRegister = new CommandRegister<CommandSender, PaperCommandManager<CommandSender>>(this.getLogger(), (coordinator, mapper) -> {
             try {
-                PaperCommandManager<CommandSender> manager = new PaperCommandManager<>(this, coordinator, mapper, mapper);
+                PaperCommandManager<CommandSender> manager = new PaperCommandManager<CommandSender>(this, coordinator, mapper, mapper);
                 if (manager.hasCapability(CloudBukkitCapabilities.BRIGADIER)) {
                     manager.registerBrigadier();
                 }
