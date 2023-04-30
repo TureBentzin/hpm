@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hpm-core</module>
+        <module>hpm-paper</module>
     </modules>
 
     <properties>
@@ -42,7 +43,22 @@
         <dependency>
             <groupId>de.bentzin</groupId>
             <artifactId>HangarJavaAPI</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.bentzin.tools</groupId>
+            <artifactId>DevTools</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-api</artifactId>
+            <version>4.13.1</version>
         </dependency>
     </dependencies>
 
