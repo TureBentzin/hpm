@@ -1,0 +1,2 @@
+# hpm
+HangarPluginManager
