@@ -1,5 +1,7 @@
 package de.bentzin.hpm;
 
+import de.bentzin.hangar.api.ApiClient;
+import de.bentzin.hangar.api.model.Platform;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -8,9 +10,23 @@ import org.jetbrains.annotations.NotNull;
  */
 public class HPMInstance {
 
-    private final String apiKey;
+    private final @NotNull Platform platform;
+    private final @NotNull ApiClient apiClient;
 
-    public HPMInstance(@NotNull String apiKey,) {
-        this.apiKey = apiKey;
+    public HPMInstance(@NotNull String apiKey, @NotNull Platform platform) {
+        this.platform = platform;
+        apiClient = new ApiClient();
+
+        apiClient.setApiKey(apiKey);
+
+        //authenticate with key
+
+
+
     }
+
+    public @NotNull Platform getPlatform() {
+        return platform;
+    }
+
 }

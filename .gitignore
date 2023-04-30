@@ -37,3 +37,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+hpm-core/src/test/java/de/bentzin/hpm/test/internal/HPMInstanceTest.java
