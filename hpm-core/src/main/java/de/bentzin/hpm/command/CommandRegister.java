@@ -75,7 +75,7 @@ public class CommandRegister<C extends Audience, M extends CommandManager<C>> {
         // Create the Minecraft help menu system
         //
         this.minecraftHelp = new MinecraftHelp<>(
-                /* Help Prefix */ "/example help", sender -> sender,
+                /* Help Prefix */ "/hpm help", sender -> sender,
                 /* Manager */ this.manager);
         /*
             Register Brigadier mappings
@@ -96,7 +96,7 @@ public class CommandRegister<C extends Audience, M extends CommandManager<C>> {
         this.confirmationManager = new CommandConfirmationManager<>(
                 /* Timeout */ 30L,
                 /* Timeout unit */ TimeUnit.SECONDS,
-                /* Action when confirmation is required */ context -> context.getCommandContext().getSender().sendMessage(Component.text("Confirmation required. Confirm using /example confirm.").color(NamedTextColor.RED)),
+                /* Action when confirmation is required */ context -> context.getCommandContext().getSender().sendMessage(Component.text("Confirmation required. Confirm using /hpm confirm.").color(NamedTextColor.RED)),
                 /* Action when no confirmation is pending */ sender -> sender.sendMessage(Component.text("You don't have any pending commands.").color(NamedTextColor.RED)));
         /*
             Register the confirmation processor. Plugin will enable confirmations for commands that require it
@@ -112,7 +112,7 @@ public class CommandRegister<C extends Audience, M extends CommandManager<C>> {
         /*
             Override the default exception handlers
         */
-        new MinecraftExceptionHandler<C>().withInvalidSyntaxHandler().withInvalidSenderHandler().withNoPermissionHandler().withArgumentParsingHandler().withCommandExecutionHandler().withDecorator(component -> text().append(text("[", NamedTextColor.DARK_GRAY)).append(text("Example", NamedTextColor.GOLD)).append(text("] ", NamedTextColor.DARK_GRAY)).append(component).build()).apply(this.manager, C -> C);
+        new MinecraftExceptionHandler<C>().withInvalidSyntaxHandler().withInvalidSenderHandler().withNoPermissionHandler().withArgumentParsingHandler().withCommandExecutionHandler().withDecorator(component -> text().append(text("[", NamedTextColor.DARK_GRAY)).append(text("HPM", NamedTextColor.GOLD)).append(text("] ", NamedTextColor.DARK_GRAY)).append(component).build()).apply(this.manager, C -> C);
 
         HPMCommand.construct(manager);
     }

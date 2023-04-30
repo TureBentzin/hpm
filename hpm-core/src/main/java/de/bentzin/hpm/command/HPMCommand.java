@@ -38,13 +38,20 @@ public class HPMCommand {
                     //install command ex
 
                     HPMInstance hpmInstance = new HPMInstance("2aa4da39-2aa1-486e-9f7a-6eac30b4fbf9.591b157f-5552-47ba-99f4-4a2731158550"
-                    , Platform.PAPER);
+                            , Platform.PAPER);
 
-                    context.getSender().sendMessage(Component.text(hpmInstance.getHpmService().projectInfo(author,slug).orElseThrow().toString()));
+                    context.getSender().sendMessage(Component.text(hpmInstance.getHpmService().projectInfo(author, slug).orElseThrow().toString()));
                 }));
-        manager.command(baseBuilder(manager).literal("uninstall").handler((context) -> {
-            //Base command ex
-        }));
+        manager.command(baseBuilder(manager).literal("info")
+                .argument(StringArgument.single("author"))
+                .argument(StringArgument.single("slug"))
+                .handler(new ProjectInformationHandler<>()));
+
+        manager.command(baseBuilder(manager).literal("info")
+                .argument(StringArgument.single("author"))
+                .argument(StringArgument.single("slug"))
+                .argument(StringArgument.single("version"))
+                .handler(new VersionInformationHandler<>()));
     }
 
     public static <C extends Audience> Command.Builder<C> baseBuilder(@NotNull CommandManager<C> manager) {
