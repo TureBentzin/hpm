@@ -9,5 +9,6 @@ import de.bentzin.hangar.api.client.VersionsApi;
  */
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Befator Inc.");
     }
 }

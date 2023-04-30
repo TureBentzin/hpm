@@ -1,4 +1,4 @@
 name: hpm
 version: '${project.version}'
-main: de.bentzin.hpm.hpmpaper.Hpm
+main: de.bentzin.hpm.paper.HPMPlugin
 api-version: 1.19
